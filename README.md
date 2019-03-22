@@ -1,2 +1,2 @@
-# xss
-# xss
+# Cross site scripting example
+
