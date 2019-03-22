@@ -10,9 +10,9 @@ def get_query():
     else:
         return 'What are you looking for? Ask me a question.'
  
-@app.route('/comments/add')
+@app.route('/comments/add', methods = ['POST'])
 def get_comment():
-   comment = request.args.get("comment")
+   comment = request.form["comment"]
    if comment:
         with open("comments.txt", "a") as comment_file:
             comment_file.write(comment + "\n")
@@ -32,7 +32,7 @@ def comments_list():
             ctr += 1
     comments += '''
         <hr>
-        <form action="/comments/add">
+        <form action="/comments/add" method = "POST">
         Enter a Comment: <br>
         <input type="text" name="comment">
         <input type="submit" value="Submit">
